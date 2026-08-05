@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="EgoAfford: Task-Oriented Affordance Grounding via Egocentric Referring Segmentation.">
+  <title>EgoAfford</title>
+  <link rel="icon" href="./static/images/favicon.svg?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/project.css">
+</head>
+<body>
+  <nav class="navbar project-navbar" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#top"><strong>EgoAfford</strong></a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="project-nav">
+          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="project-nav" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="#abstract">Abstract</a>
+          <a class="navbar-item" href="#dataset">Dataset</a>
+          <a class="navbar-item" href="#egolens">EgoLens</a>
+          <a class="navbar-item" href="#results">Results</a>
+          <a class="navbar-item" href="#resources">Resources</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section id="top" class="hero publication-header">
+    <div class="hero-body">
+      <div class="container is-max-desktop has-text-centered">
+        <h1 class="title is-1 publication-title">EgoAfford: Task-Oriented Affordance Grounding<br>via Egocentric Referring Segmentation</h1>
+        <div class="is-size-5 publication-authors">
+          <span class="author-block">Xinyuan Guan<sup>1,2</sup>,</span>
+          <span class="author-block">Feifan Chen<sup>1</sup>,</span>
+          <span class="author-block">Xinyu Zhan<sup>1</sup>,</span>
+          <span class="author-block">Fu-Cheng Zhang<sup>2</sup>,</span>
+          <span class="author-block">Cewu Lu<sup>1,2,3</sup>,</span>
+          <span class="author-block">Lixin Yang<sup>1,2</sup><sup>†</sup></span>
+        </div>
+        <div class="is-size-6 publication-authors">
+          <span class="author-block"><sup>1</sup>Shanghai Jiao Tong University</span>
+          <span class="author-block"><sup>2</sup>Shanghai Innovation Institute</span>
+          <span class="author-block"><sup>3</sup>Noematrix Ltd</span>
+        </div>
+        <div class="publication-venue">Preprint · 2026 &nbsp; | &nbsp; <sup>†</sup>Corresponding author</div>
+        <div class="column has-text-centered">
+          <div class="publication-links">
+            <span class="link-block"><a href="./static/pdfs/EgoAfford.pdf" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span></a></span>
+            <span class="link-block"><a href="#citation" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-quote-right"></i></span><span>BibTeX</span></a></span>
+            <span class="link-block"><span class="button is-normal is-rounded is-dark muted-link"><span class="icon"><i class="fab fa-github"></i></span><span>Code (Coming Soon)</span></span></span>
+            <span class="link-block"><span class="button is-normal is-rounded is-dark muted-link"><span class="icon"><i class="fas fa-database"></i></span><span>Dataset (Coming Soon)</span></span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="hero-body hero-teaser">
+      <div class="container is-max-desktop">
+        <img src="./static/images/teaser.png" alt="Overview of EgoAfford and EgoLens.">
+      </div>
+    </div>
+  </section>
+
+  <section id="abstract" class="section">
+    <div class="container is-max-desktop has-text-centered">
+      <h2 class="section-heading">Abstract</h2>
+      <p class="has-text-justified is-size-5">Part-level affordance grounding has advanced the localization of functional object regions associated with elemental actions. Extending this capability to complex tasks calls for connecting the semantic roles of participating objects with task-state-aligned visual observations and multi-step planning. We introduce <strong>EgoAfford</strong>, a benchmark designed to connect these three aspects. Given an egocentric observation and a high-level tabletop task, a model must generate the remaining plan and segment the functional regions of up to three components of the next action: the direct object, instrument, and destination. EgoAfford comprises approximately 15.5k human-verified images from 2,000 generated multi-step scenes, organized as semantically aligned, task-complete image series, together with EgoAfford-Real, 102 manually captured images spanning 26 tasks. We further present <strong>EgoLens</strong>, a 3B multimodal large language model with role-specific mask decoders, as an in-domain reference model for this joint task.</p>
+    </div>
+  </section>
+
+  <section class="section soft-section">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered">
+        <h2 class="section-heading">From a Task Goal to Actionable Regions</h2>
+        <p class="section-intro is-size-5">EgoAfford jointly studies task understanding, next-step planning, and role-conditioned part grounding in egocentric tabletop scenes.</p>
+      </div>
+      <div class="columns is-variable is-5">
+        <div class="column"><div class="card feature-card"><div class="card-content"><div class="feature-icon"><i class="fas fa-list-ol"></i></div><h3 class="title is-4">Task-oriented</h3><p>A high-level goal unfolds as a state-dependent action sequence. The model infers what remains to be done from the current observation.</p></div></div></div>
+        <div class="column"><div class="card feature-card"><div class="card-content"><div class="feature-icon"><i class="fas fa-shapes"></i></div><h3 class="title is-4">Role-aware</h3><p>Every next action is grounded through three functional roles: direct object, instrument, and destination.</p></div></div></div>
+        <div class="column"><div class="card feature-card"><div class="card-content"><div class="feature-icon"><i class="fas fa-eye"></i></div><h3 class="title is-4">Egocentric</h3><p>Semantically aligned image series preserve task state, making the connection between perception and planning explicit.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dataset" class="section">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered"><h2 class="section-heading">EgoAfford Dataset</h2><p class="section-intro is-size-5">A task-complete benchmark of multi-step tabletop manipulation with human-verified, part-level role annotations.</p></div>
+      <div class="columns is-vcentered is-variable is-6">
+        <div class="column is-6"><div class="figure-panel"><img src="./static/images/dataset-statistics.png" alt="EgoAfford dataset statistics."><p class="figure-caption">Dataset composition across task states, object roles, and annotations.</p></div></div>
+        <div class="column is-6"><div class="columns is-multiline has-text-centered"><div class="column is-half"><p class="stat-number">15.5K</p><p class="stat-label">human-verified images</p></div><div class="column is-half"><p class="stat-number">2,000</p><p class="stat-label">generated multi-step scenes</p></div><div class="column is-half"><p class="stat-number">3</p><p class="stat-label">functional roles per action</p></div><div class="column is-half"><p class="stat-number">102</p><p class="stat-label">real images across 26 tasks</p></div></div><p class="mt-4">Besides the generated scenes, <strong>EgoAfford-Real</strong> provides manually captured observations for evaluating transfer to real tabletop environments.</p></div>
+      </div>
+      <div class="mt-5 figure-panel"><img src="./static/images/dataset-diversity.png" alt="Examples illustrating the diversity of EgoAfford scenes."><p class="figure-caption">Diverse task states and object configurations in EgoAfford.</p></div>
+    </div>
+  </section>
+
+  <section id="egolens" class="section soft-section">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered"><h2 class="section-heading">EgoLens</h2><p class="section-intro is-size-5">An in-domain 3B multimodal language model with role-specific mask decoders for joint next-step prediction and part-level grounding.</p></div>
+      <div class="figure-panel"><img src="./static/images/egolens.png" alt="EgoLens model architecture."><p class="figure-caption">EgoLens takes a task goal and an egocentric observation, predicts the remaining plan, and grounds role-specific functional parts for the next action.</p></div>
+    </div>
+  </section>
+
+  <section id="results" class="section">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered"><h2 class="section-heading">Qualitative Results</h2><p class="section-intro is-size-5">EgoLens conditions segmentation on the predicted next action and distinguishes the functional roles of participating objects.</p></div>
+      <div class="figure-panel"><img src="./static/images/qualitative-comparison.png" alt="Qualitative comparison of affordance grounding results."><p class="figure-caption">Qualitative comparison on task-oriented affordance grounding. Please refer to the paper for complete experimental details and quantitative evaluation.</p></div>
+    </div>
+  </section>
+
+  <section id="resources" class="section soft-section">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered"><h2 class="section-heading">Resources</h2><p class="section-intro is-size-5">Public links will be added here as the paper, code, and dataset are released.</p></div>
+      <div class="columns is-variable is-5">
+        <div class="column"><div class="card resource-card"><div class="card-content"><h3 class="title is-4"><i class="fas fa-file-pdf"></i> Paper</h3><p class="mb-4">Current preprint PDF included in this repository.</p><a href="./static/pdfs/EgoAfford.pdf" class="button is-link is-light">Download PDF</a></div></div></div>
+        <div class="column"><div class="card resource-card"><div class="card-content"><h3 class="title is-4"><i class="fab fa-github"></i> Code</h3><p>Implementation and evaluation scripts will be released with a public repository.</p></div></div></div>
+        <div class="column"><div class="card resource-card"><div class="card-content"><h3 class="title is-4"><i class="fas fa-database"></i> Dataset</h3><p>EgoAfford and EgoAfford-Real release details will be announced here.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="citation" class="section">
+    <div class="container has-text-centered"><h2 class="section-heading">Citation</h2><p class="section-intro">If you find EgoAfford useful, please cite the preprint.</p><pre class="citation-box"><code>@article{guan2026egoafford,
+  title   = {EgoAfford: Task-Oriented Affordance Grounding via Egocentric Referring Segmentation},
+  author  = {Guan, Xinyuan and Chen, Feifan and Zhan, Xinyu and Zhang, Fu-Cheng and Lu, Cewu and Yang, Lixin},
+  journal = {arXiv preprint},
+  year    = {2026}
+}</code></pre></div>
+  </section>
+
+  <footer class="footer"><div class="content has-text-centered"><p>© 2026 EgoAfford. Website adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies project page template</a>.</p><p><a href="mailto:chapman_guan@sjtu.edu.cn">chapman_guan@sjtu.edu.cn</a> &nbsp;·&nbsp; <a href="mailto:siriusyang@sjtu.edu.cn">siriusyang@sjtu.edu.cn</a></p></div></footer>
+
+  <script>
+    document.querySelector('.navbar-burger').addEventListener('click', function () {
+      this.classList.toggle('is-active');
+      document.getElementById(this.dataset.target).classList.toggle('is-active');
+    });
+  </script>
+</body>
+</html>
