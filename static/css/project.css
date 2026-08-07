@@ -19,10 +19,29 @@ body { color: var(--ego-ink); }
 
 .project-navbar .navbar-item { font-weight: 600; }
 .project-navbar .navbar-item:hover { color: var(--ego-blue); background: transparent; }
+.navbar-logo { margin-right: .5rem; }
+
+.brand-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -.12em;
+}
+.icon-on-dark { filter: invert(1); }
+.ui-icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
 
 .publication-title { letter-spacing: -.035em; }
 .publication-venue { margin: .7rem auto 0; }
 .hero-teaser { padding-top: .25rem; }
+.container.teaser-container {
+  width: calc(100% - 2rem);
+  max-width: 1280px;
+}
 .hero-teaser img {
   display: block;
   width: 100%;
@@ -49,6 +68,23 @@ body { color: var(--ego-ink); }
   box-shadow: 0 6px 18px rgba(37, 67, 89, .06);
 }
 .feature-card .card-content, .resource-card .card-content { padding: 1.5rem; }
+.resource-card .card-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.resource-title {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+}
+.resource-description { flex: 1; }
+.resource-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 1rem;
+}
 .feature-icon {
   color: var(--ego-blue);
   font-size: 1.7rem;
@@ -63,6 +99,43 @@ body { color: var(--ego-ink); }
 }
 .figure-panel img { display: block; width: 100%; }
 .figure-caption { padding: .8rem 1rem; color: #596575; font-size: .93rem; }
+.figure-panel-dataset {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.figure-panel-wide {
+  width: 100%;
+  max-width: 1160px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.figure-panel-model {
+  width: 100%;
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.container.results-container {
+  width: calc(100% - 2rem);
+  max-width: 1400px;
+}
+.figure-panel-qualitative {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.dataset-summary {
+  max-width: 1040px;
+  margin: 2rem auto 0;
+}
+.dataset-note {
+  max-width: 860px;
+  margin: .75rem auto 0;
+  color: #4d5a69;
+  text-align: center;
+}
+.dataset-diversity-panel { margin-top: 2.5rem; }
 .stat-number { color: var(--ego-blue); font-size: 2.15rem; font-weight: 700; line-height: 1; }
 .stat-label { margin-top: .4rem; color: #596575; }
 .citation-box {
@@ -76,7 +149,6 @@ body { color: var(--ego-ink); }
   text-align: left;
   white-space: pre;
 }
-.muted-link { opacity: .58; cursor: default; pointer-events: none; }
 .footer { padding: 2.25rem 1.5rem; }
 
 @media screen and (max-width: 1023px) {
